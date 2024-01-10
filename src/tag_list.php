@@ -30,7 +30,7 @@ require 'parts/side.php';
                     $tag_id = $row['tag_id'];
                     echo '<tr>';
                     echo '<td><a href="#">';
-                    echo $row['tag_name'];
+                    echo '<a href="tag_detail.php?id=', $tag_id, '">',$row['tag_name'],'</a>';
                     echo '</a></td>';
                     echo '<td>';
                     echo '<form action="tag_update.php" method="post">';

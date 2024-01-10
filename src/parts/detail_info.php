@@ -1,18 +1,7 @@
 <div class="memo_detail_info_form">
     <?php
     echo '<p><span>詳細情報</span></p>';
-    // $sql_user = $pdo->prepare('SELECT * FROM MEMO_user WHERE user_id=?');
-    // $sql_user->execute([$row['author_id']]);
-    // foreach ($sql_user as $row_user) {
-    //     echo '<p><span>作成者：', $row_user['user_name'], '</span></p>';
-    // }
     echo '<p><span>作成日時：', $row['created_date'], '</span></p>';
-    // echo '<p><span>更新者：';
-    // $sql_user->execute([$row['update_id']]);
-    // foreach ($sql_user as $row_user) {
-    //     echo $row_user['user_name'];
-    // }
-    // echo '</span></p>';
     echo '<p><span>更新日時：', $row['update_date'], '</span></p>';
     echo '<p><span>タグ一覧</span><p>';
     $sql_tag = $pdo->prepare('SELECT * FROM MEMO_tag_link WHERE memo_id=?');

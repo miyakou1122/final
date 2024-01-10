@@ -40,7 +40,7 @@
                     break;
                 } else {
                     $tag_id = $row['tag_id'];
-                    echo '<li>', $row['tag_name'], '</li>';
+                    echo '<li><a href="tag_detail.php?id=', $tag_id, '">', $row['tag_name'], '</a></li>';
                     $count++;
                 }
             }

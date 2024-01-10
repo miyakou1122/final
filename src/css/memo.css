@@ -334,7 +334,6 @@ header {
 .tag_list_table {
     margin: auto;
     margin-top: 10px;
-    text-align: left;
     font-size: 25px;
 }
 .tag_list_table th{
@@ -414,6 +413,33 @@ header {
     transition: transform 0.1s ease-in-out;
 }
 
+/* メモ詳細 */
+.tag_detail{
+    text-align: center;
+}
+.tag_detail_caption{
+    font-size: 40px;
+    font-weight: bold;
+}
+.tag_detail_table{
+    margin: auto;
+    margin-top: 10px;
+    
+    font-size: 25px;
+}
+.tag_detail_table th{
+    text-align: center;
+}
+.tag_detail_table th,
+.tag_detail_table td {
+    padding: 5px;
+    border: 1px solid #fff;
+    border-bottom: 2px solid #dddddd;
+}
+.tag_detail_table a {
+    text-decoration: none;
+    color: black;
+}
 /* マイページ */
 .user_info {
     text-align: center;
