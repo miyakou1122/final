@@ -1,0 +1,366 @@
+p {
+    margin-bottom: 1em;
+}
+
+/* ヘッダー */
+header {
+    height: 90px;
+    width: 100%;
+    display: flex;
+    background-color: antiquewhite;
+    text-align: center;
+}
+
+/* ヘッダーのロゴ */
+#logo {
+    font-size: 75px;
+}
+.logo_a {
+    text-decoration: none;
+    color: black;
+}
+.header_img{
+    text-align: right;
+}
+
+/* ボディのタイトル */
+#heading {
+    font-size: 50px;
+}
+
+/* 新規登録 */
+.signup-form {
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 10px;
+    width: 450px;
+    font-size: 30px;
+    line-height: 1.5;
+}
+
+.signup-textbox {
+    height: 30px;
+    font-size: 30px;
+}
+
+.signup-error {
+    font-size: 20px;
+    color: red;
+}
+
+.signup-button {
+    background-color: rgba(9, 136, 136, 0.733);
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    border: none;
+    border-radius: 10px;
+    width: 200px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    transition: transform 0.1s ease-in-out;
+}
+
+.signup-button:active {
+    transform: translateY(2px);
+}
+
+/* ログイン */
+.login-form {
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 10px;
+    width: 450px;
+    font-size: 30px;
+    line-height: 1.5;
+}
+
+.login-textbox {
+    height: 30px;
+    font-size: 30px;
+}
+
+.login-error {
+    font-size: 20px;
+    color: red;
+}
+
+.login-button {
+    background-color: rgba(9, 136, 136, 0.733);
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    border: none;
+    border-radius: 10px;
+    width: 200px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    transition: transform 0.1s ease-in-out;
+}
+
+.login-button:active {
+    transform: translateY(2px);
+}
+
+/* サイドバー */
+.side {
+    height: 100%;
+    width: 20%;
+    background-color: #333;
+    color: white;
+    padding-top: 20px;
+    position: fixed;
+    font-size: 20px;
+}
+
+.side a {
+    text-decoration: none;
+    color: white;
+}
+
+.side_caption {
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.side_ul  {
+    list-style-type: none; 
+    padding: 0; 
+    padding-left: 1em;
+}
+
+.side_ul li {
+    padding: 5px; 
+}
+
+.side_ul li a {
+    color: white;
+}
+
+
+/* メイン */
+.content {
+    margin-left: 20%;
+    padding: 20px;
+}
+
+/* メモ作成 */
+.memo_create-form {
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 10px;
+    width: 700px;
+    font-size: 30px;
+    line-height: 1.5;
+    text-align: center;
+    background-color: rgba(128, 128, 128, 0.567);
+}
+
+.memo_create-textbox {
+    height: 30px;
+    font-size: 30px;
+    width: 650px;
+    border: 2px solid #000;
+}
+
+.memo_create-textarea {
+    height: 300px;
+    font-size: 30px;
+    width: 650px;
+    border: 2px solid #000;
+}
+
+.memo_create-button {
+    background-color: gray;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    border: none;
+    border-radius: 10px;
+    width: 200px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    transition: transform 0.1s ease-in-out;
+}
+
+/* メモ詳細 */
+.memo_detail {
+    display: flex;
+}
+
+.memo_detail_form {
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 10px;
+    width: 65%;
+    font-size: 30px;
+    line-height: 1.25;
+    text-align: center;
+    background-color: rgba(128, 128, 128, 0.567);
+}
+
+.detail_content {
+    width: 90%;
+    border: 2px solid #000;
+    text-align: left;
+}
+
+.memo_update_delete_button {
+    display: flex;
+}
+
+.memo_detail-button {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+/* 詳細情報表示 */
+.memo_detail_info_form {
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 10px;
+    width: 35%;
+    margin-left: 2%;
+    line-height: 1.25;
+    background-color: rgba(128, 128, 128, 0.567);
+    font-size: 20px;
+}
+
+/* メモ更新 */
+.memo_update {
+    display: flex;
+}
+
+.memo_update-form {
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 10px;
+    width: 65%;
+    font-size: 30px;
+    line-height: 1.25;
+    text-align: center;
+    background-color: rgba(128, 128, 128, 0.567);
+}
+
+.memo_update-textbox {
+    font-size: 30px;
+    width: 90%;
+    border: 2px solid #000;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.memo_update-textarea {
+    height: 300px;
+    font-size: 30px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 10px;
+    width: 90%;
+    margin-left: 2%;
+    line-height: 1.25;
+}
+
+.memo_update-button {
+    background-color: gray;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    border: none;
+    border-radius: 10px;
+    width: 200px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    transition: transform 0.1s ease-in-out;
+}
+
+/* メモ削除 */
+.memo_delete_sentence {
+    font-size: 30px;
+}
+
+.memo_delete_word {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.delete_YES_NO_button {
+    display: flex;
+}
+
+.memo_delete-button {
+    font-size: 25px;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+/* メモ一覧 */
+.memo_list {
+    text-align: center;
+}
+
+.memo_list_caption {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.memo_list_table {
+    margin: auto;
+    margin-top: 10px;
+    text-align: left;
+    font-size: 25px;
+}
+
+.memo_list_table th,
+.memo_list_table td {
+    padding: 5px;
+    border: 1px solid #fff;
+    border-bottom: 2px solid #dddddd;
+}
+
+.memo_list_table a {
+    text-decoration: none;
+    color: black;
+}
+
+/* タグ作成 */
+.tag_create-form {
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 10px;
+    width: 700px;
+    font-size: 30px;
+    line-height: 1.5;
+    text-align: center;
+    background-color: rgba(128, 128, 128, 0.567);
+}
+
+.tag_create-textbox {
+    height: 30px;
+    font-size: 30px;
+    width: 650px;
+    border: 2px solid #000;
+}
+
+.tag_create-button {
+    background-color: gray;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    border: none;
+    border-radius: 10px;
+    width: 200px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    transition: transform 0.1s ease-in-out;
+}
+
+/* マイページ */
+.user_info {
+    text-align: center;
+}
+
+.user_info_caption {
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 75px;
+}
+.user_info_item{
+    font-size: 30px;
+    line-height: 50px;
+}
