@@ -40,55 +40,63 @@ require 'parts/header.php';
 require 'parts/side.php';
 ?>
 <div class="content">
-    <div class="memo_update">
-        <div class="memo_update-form">
-            <form action="memo_update.php" method="post">
-                <?php
-                $update_judge = 0;
-                $sql_memo = $pdo->prepare('SELECT * FROM MEMO_memo WHERE memo_id=?');
-                $sql_memo->execute([$_POST['memo_id']]);
-                foreach ($sql_memo as $row) {
-                    $memo_title = $row['memo_title'];
-                    $memo_content = $row['memo_content'];
+    <?php
+    if (isset($_SESSION['user'])) {
+        ?>
+        <div class="memo_update">
+            <div class="memo_update-form">
+                <form action="memo_update.php" method="post">
+                    <?php
+                    $update_judge = 0;
+                    $sql_memo = $pdo->prepare('SELECT * FROM MEMO_memo WHERE memo_id=?');
+                    $sql_memo->execute([$_POST['memo_id']]);
+                    foreach ($sql_memo as $row) {
+                        $memo_title = $row['memo_title'];
+                        $memo_content = $row['memo_content'];
+                    }
+                    echo '<span>タイトル</span><br>';
+                    echo '<input type="text" name="title" class="memo_update-textbox" placeholder="最大20文字" maxlength="20" value="', $memo_title, '"><br>';
+                    echo '<span>内容</span><br>';
+                    echo '<textarea name="content" class="memo_update-textarea" placeholder="最大2000文字" maxlength="2000" required>', $memo_content, '</textarea><br>';
+                    $update_judge = 1;
+                    echo '<input type="hidden" name = "memo_id" value=', $_POST['memo_id'], '>';
+                    echo '<input type="hidden" name = "update_judge" value="', $update_judge, '">';
+                    ?>
+                    <button type="submit" class="memo_update-button">更新</button>
+                </form>
+            </div>
+            <?php
+            require 'parts/detail_info.php';
+            ?>
+            <p>タグの追加</p>
+            <?php
+            $sql_tag = $pdo->prepare('SELECT * FROM MEMO_tag_list WHERE user_id=?');
+            $sql_tag->execute([$user_id]);
+            if ($sql_tag->rowCount() === 0) {
+                echo 'タグがありません';
+            } else {
+                echo '<form action="memo_update.php" method="post">';
+                echo '<p><select id="tag_add" name="tag_add">';
+                foreach ($sql_tag as $row_tag) {
+                    $tag_id = $row_tag['tag_id'];
+                    $tag_name = $row_tag['tag_name'];
+                    echo '<option value=', $tag_id, '>', $tag_name, '</option>';
                 }
-                echo '<span>タイトル</span><br>';
-                echo '<input type="text" name="title" class="memo_update-textbox" placeholder="最大20文字" maxlength="20" value="', $memo_title, '"><br>';
-                echo '<span>内容</span><br>';
-                echo '<textarea name="content" class="memo_update-textarea" placeholder="最大2000文字" maxlength="2000" required>', $memo_content, '</textarea><br>';
-                $update_judge = 1;
+                echo '</select></p>';
+                $update_judge = 2;
                 echo '<input type="hidden" name = "memo_id" value=', $_POST['memo_id'], '>';
                 echo '<input type="hidden" name = "update_judge" value="', $update_judge, '">';
-                ?>
-                <button type="submit" class="memo_update-button">更新</button>
-            </form>
-        </div>
-        <?php
-        require 'parts/detail_info.php';
-        ?>
-        <p>タグの追加</p>
-        <?php
-        $sql_tag = $pdo->prepare('SELECT * FROM MEMO_tag_list WHERE user_id=?');
-        $sql_tag->execute([$user_id]);
-        if ($sql_tag->rowCount() === 0) {
-            echo 'タグがありません';
-        } else {
-            echo '<form action="memo_update.php" method="post">';
-            echo '<p><select id="tag_add" name="tag_add">';
-            foreach ($sql_tag as $row_tag) {
-                $tag_id = $row_tag['tag_id'];
-                $tag_name = $row_tag['tag_name'];
-                echo '<option value=', $tag_id, '>', $tag_name, '</option>';
+                echo '<p><button type="submit">追加</button></p>';
+                echo '</form>';
             }
-            echo '</select></p>';
-            $update_judge = 2;
-            echo '<input type="hidden" name = "memo_id" value=', $_POST['memo_id'], '>';
-            echo '<input type="hidden" name = "update_judge" value="', $update_judge, '">';
-            echo '<p><button type="submit">追加</button></p>';
-            echo '</form>';
-        }
-        echo '</div>';
-        ?>
-    </div>
+            echo '</div>';
+            ?>
+        </div>]
+        <?php
+    } else {
+        echo 'error';
+    }
+    ?>
 </div>
 <?php
 require 'parts/foot.php';

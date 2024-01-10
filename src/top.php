@@ -6,7 +6,15 @@ require 'parts/header.php';
 require 'parts/side.php';
 ?>
 <div class="content">
-    トップ
+    <?php
+    if (isset($_SESSION['user'])) {
+        ?>
+        トップ
+        <?php
+    } else {
+        echo 'error';
+    }
+    ?>
 </div>
 <?php
 require 'parts/foot.php';

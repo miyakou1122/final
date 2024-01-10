@@ -15,11 +15,13 @@ header {
 #logo {
     font-size: 75px;
 }
+
 .logo_a {
     text-decoration: none;
     color: black;
 }
-.header_img{
+
+.header_img {
     text-align: right;
 }
 
@@ -121,14 +123,14 @@ header {
     font-size: 23px;
 }
 
-.side_ul  {
-    list-style-type: none; 
-    padding: 0; 
+.side_ul {
+    list-style-type: none;
+    padding: 0;
     padding-left: 1em;
 }
 
 .side_ul li {
-    padding: 5px; 
+    padding: 5px;
 }
 
 .side_ul li a {
@@ -306,9 +308,11 @@ header {
     text-align: left;
     font-size: 25px;
 }
-.memo_list_table th{
+
+.memo_list_table th {
     text-align: center;
 }
+
 .memo_list_table th,
 .memo_list_table td {
     padding: 5px;
@@ -336,9 +340,11 @@ header {
     margin-top: 10px;
     font-size: 25px;
 }
-.tag_list_table th{
+
+.tag_list_table th {
     text-align: center;
 }
+
 .tag_list_table th,
 .tag_list_table td {
     padding: 5px;
@@ -414,32 +420,38 @@ header {
 }
 
 /* メモ詳細 */
-.tag_detail{
+.tag_detail {
     text-align: center;
 }
-.tag_detail_caption{
+
+.tag_detail_caption {
     font-size: 40px;
     font-weight: bold;
 }
-.tag_detail_table{
+
+.tag_detail_table {
     margin: auto;
     margin-top: 10px;
-    
+
     font-size: 25px;
 }
-.tag_detail_table th{
+
+.tag_detail_table th {
     text-align: center;
 }
+
 .tag_detail_table th,
 .tag_detail_table td {
     padding: 5px;
     border: 1px solid #fff;
     border-bottom: 2px solid #dddddd;
 }
+
 .tag_detail_table a {
     text-decoration: none;
     color: black;
 }
+
 /* マイページ */
 .user_info {
     text-align: center;
@@ -450,7 +462,10 @@ header {
     font-weight: bold;
     line-height: 75px;
 }
-.user_info_item{
+
+.user_info_item {
     font-size: 30px;
     line-height: 50px;
+    text-decoration: none;
+    color: black;
 }
