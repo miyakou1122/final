@@ -46,7 +46,7 @@
             }
         }
         ?>
-        <li><span class="side_caption">全てのタグ</span></li>
+        <li><a href="tag_list.php"><span class="side_caption">全てのタグ</span></a></li>
     </ul>
     </p>
 </div>

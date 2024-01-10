@@ -15,7 +15,7 @@ require 'parts/side.php';
             $user_id
         ]);
         if ($sql->rowCount() === 0) {
-            echo '作成されたメモがありません';
+            echo '<p>作成されたメモがありません<p>';
         } else {
             ?>
             <table class="memo_list_table">

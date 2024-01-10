@@ -306,7 +306,9 @@ header {
     text-align: left;
     font-size: 25px;
 }
-
+.memo_list_table th{
+    text-align: center;
+}
 .memo_list_table th,
 .memo_list_table td {
     padding: 5px;
@@ -315,6 +317,37 @@ header {
 }
 
 .memo_list_table a {
+    text-decoration: none;
+    color: black;
+}
+
+/* タグ一覧 */
+.tag_list {
+    text-align: center;
+}
+
+.tag_list_caption {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.tag_list_table {
+    margin: auto;
+    margin-top: 10px;
+    text-align: left;
+    font-size: 25px;
+}
+.tag_list_table th{
+    text-align: center;
+}
+.tag_list_table th,
+.tag_list_table td {
+    padding: 5px;
+    border: 1px solid #fff;
+    border-bottom: 2px solid #dddddd;
+}
+
+.tag_list_table a {
     text-decoration: none;
     color: black;
 }
