@@ -136,7 +136,11 @@ header {
 .side_ul li a {
     color: white;
 }
-
+@media (min-width: 0) and (max-width: 20%) {
+    .body {
+        background-color: #ffcc00; /* 幅が20%のときの背景色 */
+    }
+}
 
 /* メイン */
 .content {
@@ -305,7 +309,7 @@ header {
 .memo_list_table {
     margin: auto;
     margin-top: 10px;
-    text-align: left;
+    text-align: center;
     font-size: 25px;
 }
 
@@ -468,4 +472,43 @@ header {
     line-height: 50px;
     text-decoration: none;
     color: black;
+}
+
+/* 情報確認・変更 */
+.user_info{
+    text-align: center;
+}
+.user_info-form {
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 10px;
+    width: 450px;
+    font-size: 30px;
+    line-height: 1.5;
+}
+
+.user_info-textbox {
+    height: 30px;
+    font-size: 30px;
+}
+
+.user_info-error {
+    font-size: 20px;
+    color: red;
+}
+
+.user_info-button {
+    background-color: rgba(9, 136, 136, 0.733);
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    border: none;
+    border-radius: 10px;
+    width: 200px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    transition: transform 0.1s ease-in-out;
+}
+
+.user_info-button:active {
+    transform: translateY(2px);
 }

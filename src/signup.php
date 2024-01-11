@@ -38,7 +38,7 @@ if (isset($_POST['user_pass'])) {
     }
 }
 require 'parts/head.php';
-require 'parts/header.php';
+require 'parts/header_login.php';
 ?>
 <center>
     <p>
