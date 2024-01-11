@@ -1,4 +1,4 @@
-<div class="side">
+<aside>
     <?php
     if (isset($_SESSION['user'])) {
         ?>
@@ -58,4 +58,4 @@
         echo 'error';
     }
     ?>
-</div>
+</aside>
