@@ -1,7 +1,17 @@
 <?php
 session_start();
 require 'parts/DB_connect.php';
-$memo_id = $_POST['memo_id'];
+$error = 0;
+if (isset($_POST['memo_id'])) {
+    $memo_id = $_POST['memo_id'];
+    $error = 2;
+}
+if (isset($_SESSION['tag_link_delete']['memo_id'])) {
+    $memo_id = $_SESSION['tag_link_delete']['memo_id'];
+    unset($_SESSION['tag_link_delete']);
+    $error = 1;
+}
+
 if (isset($_POST['update_judge'])) {
     if ($_POST['update_judge'] == 1) {
         if (!empty($_POST['title'])) {
@@ -27,11 +37,18 @@ if (isset($_POST['update_judge'])) {
     if ($_POST['update_judge'] == 2) {
         $memo_id = $_POST['memo_id'];
         $tag_add = $_POST['tag_add'];
-        $sql = $pdo->prepare('INSERT INTO MEMO_tag_link (tag_id,memo_id) VALUES(?,?)');
-        $sql->execute([
+        $sql_hantei = $pdo->prepare('SELECT * FROM MEMO_tag_link WHERE tag_id=? AND memo_id=?');
+        $sql_hantei->execute([
             $tag_add,
             $memo_id
         ]);
+        if ($sql_hantei->rowCount() === 0) {
+            $sql = $pdo->prepare('INSERT INTO MEMO_tag_link (tag_id,memo_id) VALUES(?,?)');
+            $sql->execute([
+                $tag_add,
+                $memo_id
+            ]);
+        }
     }
 }
 
@@ -48,8 +65,11 @@ require 'parts/side.php';
                 <form action="memo_update.php" method="post">
                     <?php
                     $update_judge = 0;
+                    if (isset($_POST['memo_id'])) {
+                        $memo_id = $_POST['memo_id'];
+                    }
                     $sql_memo = $pdo->prepare('SELECT * FROM MEMO_memo WHERE memo_id=?');
-                    $sql_memo->execute([$_POST['memo_id']]);
+                    $sql_memo->execute([$memo_id]);
                     foreach ($sql_memo as $row) {
                         $memo_title = $row['memo_title'];
                         $memo_content = $row['memo_content'];
@@ -59,7 +79,7 @@ require 'parts/side.php';
                     echo '<span>内容</span><br>';
                     echo '<textarea name="content" class="memo_update-textarea" placeholder="最大2000文字" maxlength="2000" required>', $memo_content, '</textarea><br>';
                     $update_judge = 1;
-                    echo '<input type="hidden" name = "memo_id" value=', $_POST['memo_id'], '>';
+                    echo '<input type="hidden" name = "memo_id" value=', $memo_id, '>';
                     echo '<input type="hidden" name = "update_judge" value="', $update_judge, '">';
                     ?>
                     <button type="submit" class="memo_update-button">更新</button>
@@ -84,14 +104,14 @@ require 'parts/side.php';
                 }
                 echo '</select></p>';
                 $update_judge = 2;
-                echo '<input type="hidden" name = "memo_id" value=', $_POST['memo_id'], '>';
+                echo '<input type="hidden" name = "memo_id" value=', $memo_id, '>';
                 echo '<input type="hidden" name = "update_judge" value="', $update_judge, '">';
                 echo '<p><button type="submit">追加</button></p>';
                 echo '</form>';
             }
             echo '</div>';
             ?>
-        </div>]
+        </div>
         <?php
     } else {
         echo 'error';

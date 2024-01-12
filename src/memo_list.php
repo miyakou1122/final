@@ -13,7 +13,7 @@ require 'parts/side.php';
             <span class="memo_list_caption">メモ一覧</span>
             <?php
             $user_id = $_SESSION['user']['user_id'];
-            $sql = $pdo->prepare('SELECT * FROM MEMO_memo WHERE author_id=?');
+            $sql = $pdo->prepare('SELECT * FROM MEMO_memo WHERE author_id=? ORDER BY update_date DESC, created_date DESC');
             $sql->execute([
                 $user_id
             ]);

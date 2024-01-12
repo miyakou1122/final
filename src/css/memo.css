@@ -2,7 +2,7 @@ p {
     margin-bottom: 1em;
 }
 .container {
-    display: flex;
+    /* display: flex; */
 }
 
 /* ヘッダー */
@@ -77,6 +77,7 @@ header {
     width: 450px;
     font-size: 30px;
     line-height: 1.5;
+    text-align: center;
 }
 
 .login-textbox {
@@ -208,6 +209,7 @@ aside a {
     width: 90%;
     border: 2px solid #000;
     text-align: left;
+    white-space: pre
 }
 
 .memo_update_delete_button {
@@ -472,7 +474,6 @@ aside a {
 .user_info_item {
     font-size: 30px;
     line-height: 50px;
-    text-decoration: none;
     color: black;
 }
 

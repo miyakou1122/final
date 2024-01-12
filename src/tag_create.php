@@ -26,6 +26,7 @@ require 'parts/side.php';
                 <span>タグ名</span><br>
                 <input type="text" name="tag_name" class="tag_create-textbox" placeholder="最大20文字" maxlength="20" required>
                 <button type="submit" class="tag_create-button">作成</button>
+            </form>
         </div>
         <?php
     } else {
