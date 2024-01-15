@@ -58,6 +58,7 @@ require 'parts/side.php';
 ?>
 <div class="content">
     <?php
+    echo $error;
     if (isset($_SESSION['user'])) {
         ?>
         <div class="memo_update">

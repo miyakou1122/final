@@ -11,12 +11,13 @@ if (isset($_POST['content'])) {
     $content = $_POST['content'];
     $user_id = $_SESSION['user']['user_id'];
     $created_date = date('Y-m-d H:i:s');
-    $sql = $pdo->prepare('INSERT INTO MEMO_memo (memo_title,memo_content,created_date,author_id) VALUES(?,?,?,?)');
+    $sql = $pdo->prepare('INSERT INTO MEMO_memo (memo_title,memo_content,created_date,author_id,update_date) VALUES(?,?,?,?,?)');
     $sql->execute([
         $title,
         $content,
         $created_date,
-        $user_id
+        $user_id,
+        $created_date,
     ]);
     $redirect_url = 'https://aso2201203.babyblue.jp/php2/final/src/top.php';
     header("Location: $redirect_url");
