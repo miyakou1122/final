@@ -37,6 +37,7 @@ require 'parts/side.php';
                 ?>
                 <input type="hidden" name="hantei" value="0">
                 <button type="submit" class="tag_update-button">更新</button>
+            </form>
         </div>
         <?php
     } else {

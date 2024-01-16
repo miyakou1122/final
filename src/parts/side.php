@@ -2,9 +2,17 @@
     <?php
     if (isset($_SESSION['user'])) {
         ?>
-
-        <p><a href="memo_create.php"><span class="side_caption">＋メモの作成</span></a></p>
         <p>
+        <form action="search.php" method="post">
+            <input type="text" name="search" class="search_textbox" placeholder="検索フォーム" required>
+            <button type="submit">検索</button>
+        </form>
+        </p>
+        <p>
+            <a href="mypage">マイページ</a>
+        </p>
+        <hr>
+        <a href="memo_create.php"><span class="side_caption">＋メモの作成</span></a>
         <ul class="side_ul">
             <?php
             $user_id = $_SESSION['user']['user_id'];
@@ -19,8 +27,8 @@
                     if ($count >= 3) {
                         break;
                     } else {
-                        $memo_id = $row['memo_id'];
-                        echo '<li><a href="memo_detail.php?id=', $memo_id, '">', $row['memo_title'], '</a></li>';
+                        $memo_ids = $row['memo_id'];
+                        echo '<li><a href="memo_detail.php?id=', $memo_ids, '">', $row['memo_title'], '</a></li>';
                         $count++;
                     }
                 }
@@ -28,9 +36,8 @@
             ?>
             <li><a href="memo_list.php"><span class="side_caption">全てのメモ</span></a></li>
         </ul>
-        </p>
-        <p><a href="tag_create.php"><span class="side_caption">＋タグの作成</span></a></p>
-        <p>
+        <hr>
+        <a href="tag_create.php"><span class="side_caption">＋タグの作成</span></a>
         <ul class="side_ul">
             <?php
             $sql = $pdo->prepare('SELECT * FROM MEMO_tag_list WHERE user_id=? ORDER BY `tag_id` DESC');
@@ -43,8 +50,8 @@
                     if ($count >= 3) {
                         break;
                     } else {
-                        $tag_id = $row['tag_id'];
-                        echo '<li><a href="tag_detail.php?id=', $tag_id, '">', $row['tag_name'], '</a></li>';
+                        $tag_ids = $row['tag_id'];
+                        echo '<li><a href="tag_detail.php?id=', $tag_ids, '">', $row['tag_name'], '</a></li>';
                         $count++;
                     }
                 }

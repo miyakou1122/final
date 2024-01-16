@@ -9,7 +9,7 @@ if (isset($_POST['login_mail'])) {
     $sql = $pdo->prepare('SELECT * FROM MEMO_user WHERE user_mail=?');
     $sql->execute([$login_mail]);
     if ($sql->rowCount() === 0) {
-        $error = 'メールアドレスかパスワードが間違っていますa';
+        $error = 'メールアドレスかパスワードが間違っています';
     } else {
         foreach ($sql as $row) {
             if (password_verify($login_pass, $row['user_pass'])) {
@@ -22,7 +22,7 @@ if (isset($_POST['login_mail'])) {
                 header("Location: $redirect_url");
                 exit();
             } else {
-                $error = 'メールアドレスかパスワードが間違っていますb';
+                $error = 'メールアドレスかパスワードが間違っています';
             }
         }
     }
@@ -42,9 +42,9 @@ require 'parts/header_login.php';
     <div class="login-form">
         <form action="login.php" method="post">
             <span>メールアドレス</span>
-            <input type="email" name="login_mail" class="login-textbox" required><br>
+            <input type="email" name="login_mail" class="login-textbox" placeholder="メールアドレス" required><br>
             <span>パスワード</span>
-            <input type="password" name="login_pass" class="login-textbox" required><br>
+            <input type="password" name="login_pass" class="login-textbox" placeholder="パスワード" required><br>
             <?php
             if (isset($error)) {
                 echo '<span class="signup-error">', $error, '</span><br>';
@@ -53,8 +53,10 @@ require 'parts/header_login.php';
             <button type="submit" class="login-button">ログイン</button>
         </form>
     </div>
-    <span>登録がまだの方</span><br>
-    <a href="signup.php"><span>新規登録はこちら</span></a>
+    </p>
+    <p>
+    <span class="login_toroku">登録がまだの方</span><br>
+    <a href="signup.php" class="login_toroku"><span>新規登録はこちら</span></a>
     </p>
 </center>
 <?php

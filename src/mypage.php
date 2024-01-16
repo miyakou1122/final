@@ -12,6 +12,7 @@ require 'parts/side.php';
         <div class="user_info">
             <p><span class="user_info_caption">マイページ</span></p>
             <p><a href="user_info.php" class="user_info_item">情報確認・変更</a></p>
+            <p><a href="pass_change.php" class="user_info_item">パスワード変更</a></p>
             <p><a href="parts/logout.php" class="user_info_item">ログアウト</a></p>
         </div>
         <?php

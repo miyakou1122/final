@@ -1,6 +1,6 @@
 <header>
     <div id="logo">
-        <span>メモサイト</span>
+        <span>EasyNote</span>
     </div>
 </header>
 <div class="container">

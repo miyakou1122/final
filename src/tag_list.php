@@ -13,7 +13,7 @@ require 'parts/side.php';
             <span class="tag_list_caption">タグ一覧</span>
             <?php
             $user_id = $_SESSION['user']['user_id'];
-            $sql = $pdo->prepare('SELECT * FROM MEMO_tag_list WHERE user_id=?');
+            $sql = $pdo->prepare('SELECT * FROM MEMO_tag_list WHERE user_id=?  ORDER BY tag_id DESC');
             $sql->execute([
                 $user_id
             ]);

@@ -1,5 +1,6 @@
 <div class="memo_detail_info_form">
     <?php
+    
     echo '<p><span>詳細情報</span></p>';
     echo '<p><span>最終更新日：<br>', $row['update_date'], '</span></p>';
     echo '<p><span>タグ一覧</span></p>';

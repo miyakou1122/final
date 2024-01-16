@@ -11,7 +11,7 @@ header {
     width: 100%;
     display: flex;
     background-color: antiquewhite;
-    text-align: center;
+    /* text-align: center; */
 }
 
 /* ヘッダーのロゴ */
@@ -105,17 +105,19 @@ header {
 .login-button:active {
     transform: translateY(2px);
 }
-
+.login_toroku{
+    font-size: 20px;
+}
 /* サイドバー */
 aside {
     height: 100%;
     width: 20%;
     background-color: #333;
     color: white;
-    padding-top: 20px;
     position: fixed;
     font-size: 20px;
     overflow-y: auto; 
+    
 }
 
 
@@ -149,6 +151,7 @@ aside a {
     flex: 1;
     margin-left: 20%;
     padding: 20px;
+    width: 80%;
 }
 
 /* メモ作成 */
@@ -319,6 +322,8 @@ aside a {
 
 .memo_list_table th {
     text-align: center;
+    font-weight: bold;
+    font-size: 30px;
 }
 
 .memo_list_table th,
@@ -331,6 +336,9 @@ aside a {
 .memo_list_table a {
     text-decoration: none;
     color: black;
+}
+.memo_list_all{
+    font-weight: bold;
 }
 
 /* タグ一覧 */
@@ -351,6 +359,9 @@ aside a {
 
 .tag_list_table th {
     text-align: center;
+    font-weight: bold;
+    font-size: 28px;
+    
 }
 
 .tag_list_table th,
@@ -514,4 +525,42 @@ aside a {
 
 .user_info-button:active {
     transform: translateY(2px);
+}
+
+/* 検索 */
+.search{
+    text-align: center;
+}
+.search_caption{
+    font-size: 30px;
+}
+.search_error{
+    font-size: 20px;
+}
+.search_textbox{
+    margin-left: 5px;
+}
+.search_list_table{
+    margin: auto;
+    margin-top: 10px;
+    font-size: 25px;
+}
+.search_list_table th {
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;   
+}
+.search_list_table th,
+.search_list_table td {
+    padding: 5px;
+    border: 1px solid #fff;
+    border-bottom: 2px solid #dddddd;
+}
+.search_list_table a {
+    text-decoration: none;
+    color: black;
+}
+/* パスワード変更 */
+.pass_change{
+    text-align: center;
 }

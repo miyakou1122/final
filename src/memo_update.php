@@ -1,16 +1,19 @@
 <?php
 session_start();
 require 'parts/DB_connect.php';
-$error = 0;
+$memo_id=0;
+$hantei=0;
+// echo $_POST['memo_id'];
 if (isset($_POST['memo_id'])) {
     $memo_id = $_POST['memo_id'];
-    $error = 2;
 }
 if (isset($_SESSION['tag_link_delete']['memo_id'])) {
     $memo_id = $_SESSION['tag_link_delete']['memo_id'];
+    $hantei = $_SESSION['tag_link_delete']['memo_id'];
     unset($_SESSION['tag_link_delete']);
-    $error = 1;
 }
+
+
 
 if (isset($_POST['update_judge'])) {
     if ($_POST['update_judge'] == 1) {
@@ -58,7 +61,9 @@ require 'parts/side.php';
 ?>
 <div class="content">
     <?php
-    echo $error;
+    
+    // echo $hantei."遷移元メモID<br>";
+    // echo $memo_id."現在メモID";
     if (isset($_SESSION['user'])) {
         ?>
         <div class="memo_update">
