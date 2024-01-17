@@ -7,17 +7,23 @@ require 'parts/side.php';
 ?>
 <?php
 
-if (isset($_GET['id'])) {
-    ?>
-    <div class="content">
-        <?php
-        if (isset($_SESSION['user'])) {
+?>
+<div class="content">
+    <?php
+    if (isset($_SESSION['user'])) {
+        $user_id = $_SESSION['user']['user_id'];
+        $memo_id = $_GET['id'];
+        $sql_user = $pdo->prepare('SELECT * FROM MEMO_memo WHERE author_id=? AND memo_id=?');
+        $sql_user->execute([
+            $user_id,
+            $memo_id
+        ]);
+        if (!($sql_user->rowCount() === 0)) {
             ?>
             <div class="memo_detail">
                 <div class="memo_detail_form">
                     <center>
                         <?php
-                        $memo_id = $_GET['id'];
                         $sql = $pdo->prepare('SELECT * FROM MEMO_memo WHERE memo_id=?');
                         $sql->execute([$memo_id]);
                         foreach ($sql as $row) {
@@ -34,6 +40,10 @@ if (isset($_GET['id'])) {
                 echo '<input type="text" name="memo_id" value=', $memo_id, ' hidden>';
                 echo '<button type="submit" class="memo_detail-button">更新</button>';
                 echo '</form>';
+                echo '<form action="memo_share.php" method="post">';
+                echo '<input type="text" name="memo_id" value="', $memo_id, '" hidden>';
+                echo '<button type="submit" class="memo_detail-button">共有</button>';
+                echo '</form>';
                 echo '<form action="memo_delete.php" method="post">';
                 echo '<input type="text" name="memo_id" value="', $memo_id, '" hidden>';
                 echo '<button type="submit" class="memo_detail-button">削除</button>';
@@ -44,14 +54,38 @@ if (isset($_GET['id'])) {
             </div>
             <?php
         } else {
-            echo 'error';
+            if (isset($_SESSION['share']['memo_id'])) {
+                $share_memo_id = $_SESSION['share']['memo_id'];
+                unset($_SESSION['share']['memo_id']);
+                if ($share_memo_id == $memo_id) {
+                    ?>
+                    <div class="memo_detail">
+                        <div class="memo_detail_form">
+                            <center>
+                                <?php
+                                $sql = $pdo->prepare('SELECT * FROM MEMO_memo WHERE memo_id=?');
+                                $sql->execute([$memo_id]);
+                                foreach ($sql as $row) {
+                                    echo '<p><div class="detail_title"><span>', $row['memo_title'], '</span></div></p>';
+                                    echo '<p><div class="detail_content"><span>', $row['memo_content'], '</span></div></p>';
+                                }
+                                ?>
+                            </center>
+                        </div>
+                        <?php
+                        require 'parts/detail_info_share.php';
+                        ?>
+                    </div>
+                    <?php
+                }
+            }
         }
-        ?>
-        <?php
-} else {
-    echo 'error';
-}
-?>
+    } else {
+        echo 'error';
+    }
+    ?>
+    <?php
+    ?>
 </div>
 <?php
 require 'parts/foot.php';

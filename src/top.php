@@ -34,7 +34,7 @@ require 'parts/side.php';
                         echo $row['memo_title'];
                         echo '</td>';
                         $count++;
-                        if ($count >= 5) {
+                        if ($count >= 4) {
                             echo '<tr>';
                             echo '<td><a href ="memo_list.php" class = "memo_list_all">全てのメモ</a></td>';
                             break;
@@ -72,7 +72,7 @@ require 'parts/side.php';
                         echo '</a></td>';
                         echo '</tr>';
                         $count++;
-                        if ($count >= 5) {
+                        if ($count >= 4) {
                             echo '<tr>';
                             echo '<td><a href ="tag_list.php" class = "memo_list_all">全てのタグ</a></td>';
                             break;

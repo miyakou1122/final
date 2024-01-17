@@ -114,10 +114,10 @@ aside {
     width: 20%;
     background-color: #333;
     color: white;
+    padding-top: 20px;
     position: fixed;
     font-size: 20px;
     overflow-y: auto; 
-    
 }
 
 
@@ -148,10 +148,8 @@ aside a {
 
 /* メイン */
 .content {
-    flex: 1;
     margin-left: 20%;
     padding: 20px;
-    width: 80%;
 }
 
 /* メモ作成 */
@@ -563,4 +561,35 @@ aside a {
 /* パスワード変更 */
 .pass_change{
     text-align: center;
+}
+
+/* メモ共有 */
+.memo_share {
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 10px;
+    width: 700px;
+    font-size: 30px;
+    line-height: 1.5;
+    text-align: center;
+    background-color: rgba(128, 128, 128, 0.567);
+}
+
+.memo_share-textbox {
+    height: 30px;
+    font-size: 30px;
+    width: 650px;
+    border: 2px solid #000;
+}
+
+.memo_share-button {
+    background-color: gray;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    border: none;
+    border-radius: 10px;
+    width: 200px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    transition: transform 0.1s ease-in-out;
 }

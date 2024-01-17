@@ -9,7 +9,10 @@
         </form>
         </p>
         <p>
-            <a href="mypage">マイページ</a>
+            <a href="mypage" class="search_textbox">マイページ</a>
+        </p>
+        <p>
+            <a href="share_check" class="search_textbox">共有</a>
         </p>
         <hr>
         <a href="memo_create.php"><span class="side_caption">＋メモの作成</span></a>
